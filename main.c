@@ -24,10 +24,10 @@ int main(void)
     const int screenWidth = 800;
     const int screenHeigth = 450;
 
-    struct ringSize {
+    typedef struct {
         float innerRadius;
         float outerRadius;
-    };
+    } ringSize;
 
     InitWindow(screenWidth, screenHeigth, "Ich bin das erste Window!");
     
@@ -37,7 +37,7 @@ int main(void)
     Vector2 testBoxOrigin = {testBox.x, testBox.y};
     bool rectangle = true;
 
-    struct ringSize Dome;
+    ringSize Dome;
     Dome.innerRadius = 100;
     Dome.outerRadius = 110;
 
