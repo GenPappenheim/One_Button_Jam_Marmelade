@@ -1,5 +1,24 @@
 #include "raylib.h"
 
+
+
+
+bool CheckCollisionRingPoint(Vector2 circleCenter, float circleRadius, Vector2 checkPoint)
+{
+    float result = ((checkPoint.x - circleCenter.x)*(checkPoint.x - circleCenter.x)) + ((checkPoint.y - circleCenter.y)*(checkPoint.y - circleCenter.y));
+    if(result == (circleRadius*circleRadius)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+
+
+
+
 int main(void)
 {
     const int screenWidth = 800;
@@ -15,12 +34,15 @@ int main(void)
     Vector2 center = {GetScreenWidth()/2.0f, GetScreenHeight()/2.0f};
 
     Rectangle testBox = {100, (GetScreenHeight()/2.0f)-50.0f, 50, 50};
+    Vector2 testBoxOrigin = {testBox.x, testBox.y};
+    bool rectangle = true;
 
     struct ringSize Dome;
     Dome.innerRadius = 100;
     Dome.outerRadius = 110;
 
     SetTargetFPS(60);
+
 
     while (!WindowShouldClose())
     {
@@ -38,15 +60,9 @@ int main(void)
             }
         }
 
-        bool collisionOccured = false;
-        bool collisionOuterRadius = CheckCollisionCircleRec(center, Dome.outerRadius, testBox);
-        bool collisionInnerRadius = CheckCollisionCircleRec(center, Dome.innerRadius, testBox);
-        if ((collisionOuterRadius == true) && (collisionInnerRadius == false)) {
-            collisionOccured = true;
-        }
-        else {
-            collisionOccured = false;
-        }
+        
+        bool collisionOccured = CheckCollisionRingPoint(center, Dome.outerRadius, testBoxOrigin);
+
 
 
         BeginDrawing();
@@ -55,13 +71,16 @@ int main(void)
 
         //DrawText("Hello World!", 190, 200, 20, BLACK);
         DrawFPS(20, 20);
+        if (collisionOccured == true) {
+            rectangle = false;
+        }
 
+        if(rectangle) {
         DrawRectangleRec(testBox, PINK);
+        }
+        
         DrawRing(center, Dome.innerRadius, Dome.outerRadius, 180.0f, 360.0f, 0, BLACK);
         
-        if (collisionOccured == true) {
-            DrawText("Collision!", GetScreenWidth()/2.0f, GetScreenHeight()/2.0f, 50, BLACK);
-        }
 
         EndDrawing();
 
