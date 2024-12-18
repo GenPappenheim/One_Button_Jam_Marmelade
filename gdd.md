@@ -99,13 +99,13 @@ Just one button.
 
 | What to do?                      | When to be done? | Whoms work?     |
 |----------------------------------|------------------|-----------------|
-| Enemy Spawning                   | 30.11.           | Bartosch        |
-| Enemy Behaviour                  | 30.12.           | Bartosch        |
-| Visual Assets (Dome, Plant, Bug) | 01.12.           | Bartosch, Malte |
-| Start Menu                       | 01.12.           | Bartosch, Malte |
-| Main Theme (Music)               | 01.12.           | Malte           |
-| One Background Music Track       | 01.12.           | Malte           |
-| Sound effects                    | 30.11.           | Malte           |
+| Enemy Spawning                   | 30.11.           |       |
+| Enemy Behaviour                  | 30.12.           |         |
+| Visual Assets (Dome, Plant, Bug) | 01.12.           |  |
+| Start Menu                       | 01.12.           |  |
+| Main Theme (Music)               | 01.12.           |           |
+| One Background Music Track       | 01.12.           |          |
+| Sound effects                    | 30.11.           |          |
 
 ### Beyond (if ahead of schedule / extra time)
 
